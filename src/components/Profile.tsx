@@ -5,7 +5,7 @@ export function Profile() {
   return (
     <section className="mb-12">
       <div>
-        <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900">Печеряга Микола Миколайович</h1>
+  <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-900 dark:text-white">Печеряга Микола Миколайович</h1>
         <div
           className="bg-sky-200 backdrop-blur-sm rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-6 md:gap-8 items-center md:items-start"
         >
@@ -25,8 +25,8 @@ export function Profile() {
             <div className="text-blue-700 font-medium text-lg">Хірург загальної, пластичної та малоінвазивної хірургії</div>
             <div className="text-gray-700">Стаж роботи: <span className="font-semibold">30 років</span></div>
             <div className="text-red-600 font-semibold">Вища категорія</div>
-            <div className="mt-2">
-              <span className="font-semibold">Напрямки хірургії:</span>
+            <div className="mt-2 flex flex-col h-full">
+              <span className="font-semibold text-gray-800">Напрямки хірургії:</span>
               <ul className="list-disc list-inside ml-4 text-gray-800">
                 <li>Загальна хірургія</li>
                 <li>Пластична хірургія</li>
@@ -35,14 +35,21 @@ export function Profile() {
                 <li>Флебологія</li>
                 <li>Проктологія</li>
               </ul>
-              <div className="text-gray-500 italic text-sm mt-2">Регулярно проходить стажування за кордоном</div>
+              <a
+                href="https://www.plastic-p.com/about"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-800 transition-colors mt-4 mx-auto"
+              >
+                Про лікаря
+              </a>
             </div>
           </div>
           {/* Контакти */}
           <div className="flex-1 min-w-56 space-y-2 ">
             {/* Адреса */}
             <div>
-              <span className="font-semibold">Адреса клініки:</span>
+              <span className="font-semibold text-gray-800">Адреса клініки:</span>
               <div className="text-gray-800">
                 м.Чернівці, вул.Героїв Майдану 226, ЦМКЛ, 4 поверх<br/>
                 (вхід з вулиці Рівенська)
@@ -52,7 +59,7 @@ export function Profile() {
             </div>
             {/* Телефони */}
             <div>
-              <span className="font-semibold">Телефони:</span>
+              <span className="font-semibold text-gray-800">Телефони:</span>
               <div className="flex flex-col gap-1 mt-1">
                 <a href="tel:+380673287322" className="text-blue-600 hover:underline flex items-center gap-2">
                   +380 (67) 328-73-22
@@ -64,7 +71,7 @@ export function Profile() {
             </div>
             {/* Email */}
             <div>
-              <span className="font-semibold">Email:</span>
+              <span className="font-semibold text-gray-800">Email:</span>
               <div className="flex flex-col gap-1 mt-1">
                 <a href="mailto:Pecheryag@gmail.com" className="text-blue-600 hover:underline flex items-center gap-2">
                   Pecheryag@gmail.com
@@ -76,7 +83,7 @@ export function Profile() {
             </div>
             {/* Сайт */}
             <div>
-              <span className="font-semibold">Сайт:</span>
+              <span className="font-semibold text-gray-800">Сайт:</span>
               <div className="flex flex-col gap-1 mt-1">
                 <a href="https://www.plastic-p.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-2">
                   www.plastic-p.com
@@ -84,7 +91,7 @@ export function Profile() {
               </div>
             </div>
             <div>
-              <span className="font-semibold">Соціальні мережі:</span>
+              <span className="font-semibold text-gray-800">Соціальні мережі:</span>
               <div className="flex gap-3 mt-1">
                 <a href="https://www.facebook.com/mikola.peceraga" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800" title="Facebook" aria-label="Facebook">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.326 24h11.495v-9.294H9.691v-3.622h3.13V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
@@ -98,7 +105,7 @@ export function Profile() {
               </div>
             </div>
             <div>
-              <span className="font-semibold">Адреса:</span>
+              <span className="font-semibold text-gray-800">Адреса:</span>
               <div className="text-gray-800">м.Чернівці, вул.Героїв Майдану 226, ЦМКЛ, 4 поверх<br/>(вхід з вулиці Рівенська)</div>
             </div>
           </div>

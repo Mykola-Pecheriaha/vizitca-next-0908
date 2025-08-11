@@ -30,7 +30,7 @@ export function Contacts() {
   const todayStatus = getTodayStatus();
   return (
     <section className="my-12 bg-sky-200 backdrop-blur-sm p-8 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-8 text-center">Контакти</h2>
+  <h2 className="text-2xl font-bold mb-8 text-center text-gray-800">Контакти</h2>
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8">
         {/* Ліва колонка: контакти */}
         <div className="flex-1 space-y-4 min-w-[220px]">
@@ -82,16 +82,15 @@ export function Contacts() {
         </div>
         {/* Центр: години роботи */}
         <div className="flex-1 min-w-[220px] flex flex-col items-center justify-center">
-          <div className="bg-white/80 rounded-lg p-6 shadow text-center w-full max-w-xs">
-            <div className="text-lg font-semibold mb-2">Години роботи</div>
-            <div className={`${todayStatus.color} font-bold mb-2`}>{todayStatus.status}</div>
+          <div className="bg-white rounded-lg p-6 shadow text-center w-full max-w-xs">
+            <div className="text-lg font-semibold mb-2 text-gray-800">Години роботи</div>
             <table className="w-full text-sm">
               <tbody>
                 {WORK_HOURS.map((row, idx) => (
                   <tr key={row.day}>
-                    <td className="text-left">{row.day}</td>
+                    <td className="text-left text-gray-800">{row.day}</td>
                     <td className={
-                      'text-right ' +
+                      'text-right text-gray-800 ' +
                       (row.open ? '' : 'text-red-600') +
                       (idx === (new Date().getDay() === 0 ? 6 : new Date().getDay() - 1) ? ' font-bold underline' : '')
                     }>
