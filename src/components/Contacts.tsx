@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from 'react';
 import Link from 'next/link'
 
 const WORK_HOURS = [
@@ -10,24 +13,18 @@ const WORK_HOURS = [
   { day: 'неділя', open: null, close: null },
 ];
 
-function getTodayStatus() {
+
+function getTodayIdx() {
   const now = new Date();
-  // В JS тиждень починається з неділі (0)
-  // 0 - неділя, 1 - понеділок, ... 6 - субота
   let dayIdx = now.getDay();
-  // Перетворюємо: 0 (неділя) -> 6, 1 (понеділок) -> 0, ... 6 (субота) -> 5
-  dayIdx = dayIdx === 0 ? 6 : dayIdx - 1;
-  const today = WORK_HOURS[dayIdx];
-  if (!today.open) return { status: 'Зачинено', color: 'text-red-600' };
-  const current = now.getHours() + now.getMinutes() / 60;
-  const open = Number(today.open.split(':')[0]) + Number(today.open.split(':')[1]) / 60;
-  const close = Number(today.close.split(':')[0]) + Number(today.close.split(':')[1]) / 60;
-  if (current >= open && current < close) return { status: 'Відкрито', color: 'text-green-600' };
-  return { status: 'Зачинено', color: 'text-red-600' };
+  return dayIdx === 0 ? 6 : dayIdx - 1;
 }
 
 export function Contacts() {
-  const todayStatus = getTodayStatus();
+  const [todayIdx, setTodayIdx] = useState<number | null>(null);
+  useEffect(() => {
+    setTodayIdx(getTodayIdx());
+  }, []);
   return (
     <section className="my-12 bg-sky-200 backdrop-blur-sm p-8 rounded-lg shadow-md">
   <h2 className="text-2xl font-bold mb-8 text-center text-gray-800">Контакти</h2>
@@ -92,7 +89,7 @@ export function Contacts() {
                     <td className={
                       'text-right text-gray-800 ' +
                       (row.open ? '' : 'text-red-600') +
-                      (idx === (new Date().getDay() === 0 ? 6 : new Date().getDay() - 1) ? ' font-bold underline' : '')
+                      (todayIdx !== null && idx === todayIdx ? ' font-bold underline' : '')
                     }>
                       {row.open ? `${row.open}–${row.close}` : 'Зачинено'}
                     </td>
